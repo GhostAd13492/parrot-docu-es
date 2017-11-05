@@ -124,7 +124,7 @@ Breve descripción del Kernel Linux:
 	
   - Es un complejo programa compuesto de un gran número de subsistemas lógicos.
 	
-  - Gestionado directamente por Linus Trovadls.
+  - Gestionado directamente por Linus Torvalds.
 	
   - Con capacidad de carga de Módulos.
 	
@@ -139,7 +139,7 @@ En esta fase comienza la ejecución del kernel, descomprimiéndose a sí mismo. 
 	
   - Comprueba el bus PCI e identifica y crea una tabla con los periféricos conectados.
 	
-  - Inicializa el sistema de gestión de memoria virual, incluyendo el swapper (intercambiador o memoria de intercambio, swap).
+  - Inicializa el sistema de gestión de memoria virtual, incluyendo el swapper (intercambiador o memoria de intercambio, swap).
 	
   - Inicializa todos los periféricos compilados dentro del kernel, normalmente sólo se configuran así los periféricos necesarios para esta fase del arranque, el resto se configuran como módulos.
 	
@@ -149,8 +149,8 @@ En esta fase comienza la ejecución del kernel, descomprimiéndose a sí mismo. 
 
 ## Fase 4: Init.
 
-En estos momentos el kernel está cargado, tenemos gestión de memoria, una parte del harware está inicializado y tenemos un sistema de ficheros root. A partir de ahora, el resto de las operaciones se van a realizar directa o indirectamente por el proceso init. El proceso init lee del fichero /etc/inittab la configuración a utilizar y ejecuta el comando /etc/rc.sysinit, el cual realiza una inicialización básica del sistema. En función del runlevel ejecuta los comandos establecidos.
+En estos momentos el kernel está cargado, tenemos gestión de memoria, una parte del hardware está inicializado y tenemos un sistema de ficheros root. A partir de ahora, el resto de las operaciones se van a realizar directa o indirectamente por el proceso init. El proceso init lee del fichero /etc/inittab la configuración a utilizar y ejecuta el comando /etc/rc.sysinit, el cual realiza una inicialización básica del sistema. En función del runlevel ejecuta los comandos establecidos.
 
 Hasta aquí hemos visto las cuatro Fases del proceso de arranque de un sistema Linux en un ordenador. Podemos concluir este capítulo con el siguiente resumen:
 
-El proceso de arranque de un sistema Linux en un ordenador comienza desde que presionamos el boton de encendido, éste le da vida a nuestro hardware haciéndolo funcionar. Luego del encendido, el hardware es testeado por el POST de la BIOS, este hace un mapeo del hardware que tenemos en nuestro ordenador y lo prueba, si todo esta funcionando correctamente, continúa el proceso de arranque. La BIOS utiliza la configuración predeterminada por el fabricante de la placa de nuestro ordenador o una configuración modidificada por el usuario, luego da paso al Bootloader o Gestor de Arranque que tengamos instalado en la partición inicial de nuestro disco duro. El Bootloader es el encargado de mostrarnos las opciones de boot que configuramos previemente en la instalación del sistema, las opciones por defecto en una instalación reciente o las de un DVD de instalación o Live. Una vez que el usuario escoge una opción de boot, el Kernel es descomprimido y posteriormente se inicia. El Kernel realiza un pequeño chequeo de los dispositivos necesarios y a los cuales se le ha dado soporte, como es el caso de CPU, Display, memoria RAM y memoria virtual (swap) y otros dispositivos necesarios, el Kernel termina montando el sistema de ficheros root y por último inicia el proceso init. Init es el encargado de el resto de iniciar el resto de los procesos del sistema, iniciando así el login en modo texto o la interfaz gráfica en sistemas con GUI (Interfaz Gráfica de Usuario) y permitiéndonos hacer uso del sistema operativo.
+El proceso de arranque de un sistema Linux en un ordenador comienza desde que presionamos el boton de encendido, éste le da vida a nuestro hardware haciéndolo funcionar. Luego del encendido, el hardware es testeado por el POST de la BIOS, este hace un mapeo del hardware que tenemos en nuestro ordenador y lo prueba, si todo esta funcionando correctamente, continúa el proceso de arranque. La BIOS utiliza la configuración predeterminada por el fabricante de la placa de nuestro ordenador o una configuración modificada por el usuario, luego da paso al Bootloader o Gestor de Arranque que tengamos instalado en la partición inicial de nuestro disco duro. El Bootloader es el encargado de mostrarnos las opciones de boot que configuramos previamente en la instalación del sistema, las opciones por defecto en una instalación reciente o las de un DVD de instalación o Live. Una vez que el usuario escoge una opción de boot, el Kernel es descomprimido y posteriormente se inicia. El Kernel realiza un pequeño chequeo de los dispositivos necesarios y a los cuales se le ha dado soporte, como es el caso de CPU, Display, memoria RAM y memoria virtual (swap) y otros dispositivos necesarios, el Kernel termina montando el sistema de ficheros root y por último inicia el proceso init. Init es el encargado de el resto de iniciar el resto de los procesos del sistema, iniciando así el login en modo texto o la interfaz gráfica en sistemas con GUI (Interfaz Gráfica de Usuario) y permitiéndonos hacer uso del sistema operativo.
